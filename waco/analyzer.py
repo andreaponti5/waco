@@ -12,23 +12,23 @@ def detection_time(
 
     Args:
         trace: A pandas Dataframe containing the contaminant trace (percentage) for
-            each injection points in each node.
-            The Dataframe has the following columns:
-            - `time`: Simulation time in seconds.
-            - `node`: Node of the water network to which the trace refers.
-            - `<node_id1>`, ..., `<node_idN>`: Nodes of the water network where the contaminant has been injected.
+            each injection points in each node. \n
+            The Dataframe has the following columns: \n
+            - `time`: Simulation time in seconds. \n
+            - `node`: Node of the water network to which the trace refers. \n
+            - `<node_id1>`, ..., `<node_idN>`: Nodes of the water network where the contaminant has been injected. \n
             This Dataframe can be obtained calling waco.sim.contamination.
         sensibility: The concentration (percentage) to consider a contaminant detected.
         non_detection_value: The value to use if the concentration of contaminat in a node does
             not exceed `sensibility` in the simulation horizon.
 
     Returns:
-        A pandas Dataframe with the detection times for each pair (node, injection_node).
-        The Dataframe has the following columns:
-        - `node`: The "observer" node of the water network.
-        - `inj_node`: The node of the water network where the contaminant has been injected.
-        - `time`: The first simulation timestep when the contaminant concentration in `node` exceeds `sensibility`,
-            when the contaminant has been injected in `inj_node`.
+        A pandas Dataframe with the detection times for each pair (node, injection_node). \n
+            The Dataframe has the following columns: \n
+            - `node`: The "observer" node of the water network. \n
+            - `inj_node`: The node of the water network where the contaminant has been injected. \n
+            - `time`: The first simulation timestep when the contaminant concentration in `node` exceeds `sensibility`,
+                when the contaminant has been injected in `inj_node`. \n
     """
     if non_detection_value is None:
         times = sorted(trace["time"].unique())
@@ -52,37 +52,37 @@ def contaminated_volume(
         demand: pd.DataFrame,
         det_time: pd.DataFrame,
 ) -> pd.DataFrame:
-    r"""Compute, for each pair (node, injection node), the volume of contaminated water consumed prior to detection.
+    """Compute, for each pair (node, injection node), the volume of contaminated water consumed prior to detection.
 
     Args:
         trace: A pandas Dataframe containing the contaminant trace (percentage) for
-            each injection points in each node.
-            The Dataframe has the following columns:
-            - `time`: Simulation time in seconds.
-            - `node`: Node of the water network to which the trace refers.
-            - `<node_id1>`, ..., `<node_idN>`: Nodes of the water network where the contaminant has been injected.
-            This Dataframe can be obtained calling waco.sim.contamination.
-        demand: A pandas Dataframe with the demand at each node for each simulation timestep.
-            The Dataframe has to have the following columns:
-            - `time`: Simulation time in seconds.
-            - `node`: Node of the water network.
-            - `demand`: Demand at `node` in the simulation timestep identified by `time`.
+            each injection points in each node. \n
+            The Dataframe has the following columns: \n
+            - `time`: Simulation time in seconds. \n
+            - `node`: Node of the water network to which the trace refers. \n
+            - `<node_id1>`, ..., `<node_idN>`: Nodes of the water network where the contaminant has been injected. \n
+            This Dataframe can be obtained calling `waco.sim.contamination`.
+        demand: A pandas Dataframe with the demand at each node for each simulation timestep. \n
+            The Dataframe has to have the following columns: \n
+            - `time`: Simulation time in seconds. \n
+            - `node`: Node of the water network. \n
+            - `demand`: Demand at `node` in the simulation timestep identified by `time`. \n
             This Dataframe can be obtained calling waco.sim.demand.
-        det_time: A pandas Dataframe with the detection times for each pair (node, injection_node).
-            The Dataframe has to have the following columns:
-            - `node`: The "observer" node of the water network.
-            - `inj_node`: The node of the water network where the contaminant has been injected.
+        det_time: A pandas Dataframe with the detection times for each pair (node, injection_node). \n
+            The Dataframe has to have the following columns: \n
+            - `node`: The "observer" node of the water network. \n
+            - `inj_node`: The node of the water network where the contaminant has been injected. \n
             - `time`: The first simulation timestep when the contaminant concentration in `node` exceeds `sensibility`,
-                when the contaminant has been injected in `inj_node`.
+                when the contaminant has been injected in `inj_node`. \n
             This Dataframe can be obtained calling waco.analyzer.contaminated_volume.
 
     Returns:
         A pandas Dataframe with the volume of contaminated water consumed prior detection for each pair
-        (node, injection_node).
-        The Dataframe has the following columns:
-            - `node`: The "observer" node of the water network.
-            - `inj_node`: The node of the water network where the contaminant has been injected.
-            - `volume`: The contaminated water consumed prior detection.
+            (node, injection_node). \n
+            The Dataframe has the following columns: \n
+                - `node`: The "observer" node of the water network. \n
+                - `inj_node`: The node of the water network where the contaminant has been injected. \n
+                - `volume`: The contaminated water consumed prior detection.
     """
     max_sim_time = trace["time"].max()
     det_time["time"] = det_time["time"].astype(int)
