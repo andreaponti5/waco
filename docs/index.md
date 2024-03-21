@@ -1,11 +1,14 @@
+#
+
 <img width="550" src="https://raw.githubusercontent.com/andreaponti5/waco/1051a60fe33bb7cf123186b926f503dc50e0ca0d/docs/img/logo_title.svg" alt="WaCo Logo" title="WaCo">
 <hr />
 
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 WaCo is a library for simulating contaminations in water networks built on-top of the [WNTR](https://github.com/USEPA/WNTR) library.
+For detailed info refer to the [documentation]().
 
-# Installation
+## Installation
 The only requirement is the [WNTR](https://github.com/USEPA/WNTR) library that is used for the hydraulic simulations:
 
 * Python >= 3.9
@@ -29,7 +32,8 @@ WaCo is composed by two modules:
 * `sim`: contains the functionalities to perform hydraulic simulations for extracting the demands and the contaminant diffusion in water networks. It mainly acts as a wrapper around the WNTR library.
 * `analyzer`: contains the functionalities to extract the detection times and the volumes of contaminated water from the simulations.
 
-> **Note:** Refer to the [API Reference]() for more details about the two modules.
+!!! note
+    Refer to the [API Reference]() for more details about the two modules.
 
 To extract the detection times you need to simulate the diffusion of contaminant with the `sim` and then use the `analyzer` module.
 
