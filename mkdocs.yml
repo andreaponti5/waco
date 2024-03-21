@@ -1,6 +1,9 @@
 site_name: WaCo
 site_author: Andrea Ponti
 site_description: Simulate the diffusion of contaminants in water networks.
+site_url: https://andreaponti5.github.io/waco
+repo_url: https://github.com/andreaponti5/waco
+repo_name: andreaponti5/waco
 
 nav:
   - Home: index.md

@@ -33,7 +33,7 @@ WaCo is composed by two modules:
 * `analyzer`: contains the functionalities to extract the detection times and the volumes of contaminated water from the simulations.
 
 !!! note
-    Refer to the [API Reference]() for more details about the two modules.
+    Refer to the [API Reference](https://andreaponti5.github.io/waco/api_reference/sim/) for more details about the two modules.
 
 To extract the detection times you need to simulate the diffusion of contaminant with the `sim` and then use the `analyzer` module.
 
